@@ -1,6 +1,6 @@
 <template>
   <div class="flex items-center justify-center w-full h-full">
-    <div> this is the home page </div>
+    <div> this is the team page </div>
   </div>
 </template>
 
