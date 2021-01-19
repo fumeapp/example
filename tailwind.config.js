@@ -11,7 +11,7 @@ module.exports = ({ dev, rootDir, srcDir }) => ({
       `${srcDir}/pages/**/*.vue`,
       `${srcDir}/plugins/**/*.{js,ts}`,
       `${rootDir}/nuxt.config.{js,ts}`,
-      'node_modules/tv-*/dist/tv-*.umd.min.js'
+      `${rootDir}/node_modules/tv-*/dist/tv-*.umd.min.js`
     ]
   }
 })
