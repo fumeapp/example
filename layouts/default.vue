@@ -11,8 +11,12 @@
             <div class="hidden md:block">
               <div class="ml-10 flex items-baseline space-x-4">
                 <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                <n-link to="/" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Dashboard</n-link>
-                <n-link to="/team" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Team</n-link>
+                <n-link to="/" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">
+                  Dashboard
+                </n-link>
+                <n-link to="/team" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                  Team
+                </n-link>
                 <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Projects</a>
                 <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Calendar</a>
                 <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Reports</a>
@@ -39,28 +43,39 @@
               <!-- Profile dropdown -->
               <div class="ml-3 relative">
                 <div>
-                  <button id="user-menu" class="max-w-xs bg-gray-800 rounded-full flex items-center text-sm text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" aria-haspopup="true" @click="profileMenu = !profileMenu">
+                  <button
+                    id="user-menu"
+                    aria-haspopup="true"
+                    class="max-w-xs bg-gray-800 rounded-full flex items-center text-sm text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                    @click="toggle"
+                  >
                     <span class="sr-only">Open user menu</span>
                     <img class="h-8 w-8 rounded-full" src="https://avatars3.githubusercontent.com/u/967369?v=4" alt="">
                   </button>
                 </div>
-                <!--
-                  Profile dropdown panel, show/hide based on dropdown state.
+                <transition
+                  enter-active-class="transition ease-out duration-100"
+                  enter-class="transform opacity-0 scale-95"
+                  enter-to-class="transform opacity-100 scale-100"
+                  leave-active-class="transition ease-in duration-75"
+                  leave-class="transform opacity-100 scale-100"
+                  leave-to-class="transform opacity-0 scale-95"
+                >
+                  <div
+                    v-if="profileMenu"
+                    v-on-clickaway="off"
+                    aria-labelledby="user-menu"
+                    aria-orientation="vertical"
+                    class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5"
+                    role="menu"
+                  >
+                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Your Profile</a>
 
-                  Entering: "transition ease-out duration-100"
-                    From: "transform opacity-0 scale-95"
-                    To: "transform opacity-100 scale-100"
-                  Leaving: "transition ease-in duration-75"
-                    From: "transform opacity-100 scale-100"
-                    To: "transform opacity-0 scale-95"
-                -->
-                <div v-if="profileMenu" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
-                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Your Profile</a>
+                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Settings</a>
 
-                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Settings</a>
-
-                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Sign out</a>
-                </div>
+                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Sign out</a>
+                  </div>
+                </transition>
               </div>
             </div>
           </div>
@@ -182,11 +197,22 @@
 </template>
 
 <script>
+import { IconFume } from 'tv-icon'
+import { mixin as clickAway } from 'vue-clickaway'
 export default {
+  components: {
+    IconFume
+  },
+  mixins: [clickAway],
   data () {
     return {
       profileMenu: false
     }
+  },
+  methods: {
+    toggle () { this.profileMenu = !this.profileMenu },
+    off () { this.profileMenu = false },
+    on () { this.profileMenu = true }
   }
 }
 </script>
