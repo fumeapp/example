@@ -36,7 +36,7 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    ['nuxt-tailvue', { all: true }],
+    ['nuxt-tailvue', { all: true }]
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)

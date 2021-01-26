@@ -4,8 +4,8 @@
       <icon-fume class="w-full h-full" primary="text-indigo-200" secondary="text-indigo-800" />
       <div class="flex items-center mx-8">
         <icon-check
-          class="w-6 h-6 mr-2.5"
-          :primary="ssr ? 'text-green-300' : 'text-gray-300'"
+          class="w-6 h-6 mr-2.5 fill-current"
+          :primary="ssr ? 'fill-current text-green-300' : 'text-gray-300'"
           :secondary="ssr ? 'text-green-500' : 'text-gray-500'"
         />
         <span>Server-Side rendering</span>
