@@ -1,17 +1,24 @@
-module.exports = ({ dev, rootDir, srcDir }) => ({
-  theme: {},
-  variants: {},
+module.exports = {
+  darkMode: false, // or 'media' or 'class'
+  theme: {
+    extend: {},
+  },
+  variants: {
+    extend: {},
+  },
   plugins: [],
   purge: {
-    // Learn more on https://tailwindcss.com/docs/controlling-file-size/#removing-unused-css
-    enabled: !dev,
     content: [
-      `${srcDir}/components/**/*.{vue,js}`,
-      `${srcDir}/layouts/**/*.vue`,
-      `${srcDir}/pages/**/*.vue`,
-      `${srcDir}/plugins/**/*.{js,ts}`,
-      `${rootDir}/nuxt.config.{js,ts}`,
-      `${rootDir}/node_modules/tv-*/dist/tv-*.umd.min.js`
+      'components/**/*.vue',
+      'layouts/**/*.vue',
+      'pages/**/*.vue',
+      'plugins/**/*.js',
+      'nuxt.config.js',
+      // TypeScript
+      'plugins/**/*.ts',
+      'nuxt.config.ts',
+      // nuxt-tailvue
+      'node_modules/tv-*/dist/tv-*.umd.min.js',
     ]
   }
-})
+}

@@ -1,7 +1,12 @@
 export default {
-  // Global page headers (https://go.nuxtjs.dev/config-head)
+
+  debug: true,
+  // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'fume-example',
+    htmlAttrs: {
+      lang: 'en'
+    },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -12,37 +17,36 @@ export default {
     ]
   },
 
-  // Global CSS (https://go.nuxtjs.dev/config-css)
+  // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    '@/assets/css/assets-test.css'
   ],
 
-  // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
+  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
   ],
 
-  // Auto import components (https://go.nuxtjs.dev/config-components)
+  // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
-  // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
+  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
     // https://go.nuxtjs.dev/tailwindcss
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
   ],
 
-  // Modules (https://go.nuxtjs.dev/config-modules)
+  tailwindcss: {
+    jit: true,
+  },
+
+  // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    // https://go.nuxtjs.dev/axios
+    ['nuxt-tailvue', {all: true}],
     '@nuxtjs/axios',
-    ['nuxt-tailvue', { all: true }]
   ],
 
-  // Axios module configuration (https://go.nuxtjs.dev/config-axios)
-  axios: {},
-
-  // Build Configuration (https://go.nuxtjs.dev/config-build)
+  // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   }
 }

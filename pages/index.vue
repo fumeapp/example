@@ -1,18 +1,23 @@
 <template>
   <div class="flex items-center justify-center w-screen h-screen bg-indigo-50">
-    <div class="w-64 text-xs space-y-2">
-      <icon-fume class="w-full h-full" primary="text-indigo-200" secondary="text-indigo-800" />
-      <div class="flex items-center mx-8">
-        <icon-check
-          class="w-6 h-6 mr-2.5 fill-current"
-          :primary="ssr ? 'fill-current text-green-300' : 'text-gray-300'"
-          :secondary="ssr ? 'text-green-500' : 'text-gray-500'"
-        />
-        <span>Server-Side rendering</span>
-      </div>
-      <div class="flex items-center mx-8">
-        <img src="/favicon.ico" class="w-6 h-6 mr-2.5" alt="favicon">
-        <span>Statically sourced image</span>
+    <div class="w-1/4 text-xs flex flex-col justify-center items-center">
+      <icon-fume class="w-1/2 h-1/2" primary="text-indigo-200" secondary="text-indigo-800" />
+      <div class="flex flex-col items-left space-y-2">
+        <div class="flex items-center space-x-2 mx-8">
+          <icon-spinner v-if="!ssr" class="w-6 h-6" />
+          <icon-check
+            v-else
+            class="w-6 h-6"
+            primary="text-green-300"
+            secondary="text-green-500"
+          />
+          <span>Server-Side rendering</span>
+          <span class="text-gray-500">({{ version }})</span>
+        </div>
+        <div class="flex items-center space-x-2 mx-8">
+          <img src="/favicon.ico" class="w-6 h-6" alt="favicon">
+          <span>Statically sourced image</span>
+        </div>
       </div>
     </div>
   </div>
@@ -24,10 +29,12 @@ export default Vue.extend({
   async fetch () {
     this.random = (await fetch('https://random-data-api.com/api/stripe/random_stripe?size=10')
       .then(res => res.json()))
+    this.version = process.version
   },
   data () {
     return {
-      random: Array
+      version: '',
+      random: [],
     }
   },
   computed: {
