@@ -41,6 +41,12 @@ export default Vue.extend({
     ssr (): Boolean {
       return this.random.length > 0
     }
+  },
+  mounted() {
+    this.$nextTick(() => {
+      this.$nuxt.$loading.start()
+      setTimeout(() => this.$nuxt.$loading.finish(), 500)
+    })
   }
 })
 </script>

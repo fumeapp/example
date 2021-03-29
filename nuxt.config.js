@@ -1,3 +1,4 @@
+import colors from './colors.config.js'
 export default {
 
   debug: true,
@@ -15,6 +16,12 @@ export default {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
+  },
+
+  // try pulling in colors
+  loading: {
+    color: colors.blue,
+    height: '10px',
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
