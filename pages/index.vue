@@ -20,14 +20,14 @@
         </div>
         <div class="flex items-center space-x-2 px-3 py-2">
           <icon-aws class="w-6 h-6" />
-          <span>Docker test build number <span class="font-semibold">33</span></span>
+          <span>Docker test build number <span class="font-semibold">34</span></span>
         </div>
         <div class="px-3 py-2">
           <div class="flex space-x-2 items-center mb-2">
             <icon-cog class="w-4 h-4" />
             <span>$config</span>
           </div>
-          <pre>{{ $config }}</pre>
+          <pre>{{ config }}</pre>
         </div>
       </div>
     </div>
@@ -46,6 +46,7 @@ export default Vue.extend({
     return {
       version: '',
       random: [],
+      config: {},
     }
   },
   computed: {
@@ -54,14 +55,12 @@ export default Vue.extend({
     }
   },
   mounted() {
-    console.log(this.$config)
-    console.log(this.$config.apiUrl)
-    console.log(this.$config.testVariable)
     console.log(process.env)
     this.$nextTick(() => {
       this.$nuxt.$loading.start()
       setTimeout(() => this.$nuxt.$loading.finish(), 500)
     })
+    this.config = this.$config
   }
 })
 </script>
