@@ -20,7 +20,7 @@
         </div>
         <div class="flex items-center space-x-2 px-3 py-2">
           <icon-aws class="w-6 h-6" />
-          <span>Docker test build number <span class="font-semibold">42</span></span>
+          <span>Docker test build number <span class="font-semibold">43</span></span>
         </div>
         <div class="flex items-center space-x-2 px-3 py-2">
           <icon-cog class="w-4 h-4" />
@@ -55,7 +55,7 @@ export default Vue.extend({
       random,
       env,
       apiUrl: this.$config.apiUrl,
-      envApiUrl: process.env.apiUrl,
+      envApiUrl: process.env.API_URL,
     }
   },
   computed: {
