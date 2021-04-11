@@ -37,14 +37,14 @@
 <script lang="ts">
 import Vue from 'vue'
 export default Vue.extend({
-  async fetch (): void {
+  async fetch (): Promise<void> {
     this.random = (await fetch('https://random-data-api.com/api/stripe/random_stripe?size=10')
       .then(res => res.json()))
     this.version = process.version
   },
   data () {
-    const random = Array<any>[]
-    const config = Object<any>{}
+    const random:any = []
+    const config:Object = {}
     const version:string = ''
     return {
       version,
