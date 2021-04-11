@@ -20,14 +20,14 @@
         </div>
         <div class="flex items-center space-x-2 px-3 py-2">
           <icon-aws class="w-6 h-6" />
-          <span>Docker test build number <span class="font-semibold">36</span></span>
+          <span>Docker test build number <span class="font-semibold">37</span></span>
         </div>
         <div class="px-3 py-2">
           <div class="flex space-x-2 items-center mb-2">
             <icon-cog class="w-4 h-4" />
             <span>$config</span>
           </div>
-          <pre>{{ $config.apiUrl }}</pre>
+          <pre>{{ config }}</pre>
         </div>
       </div>
     </div>
@@ -36,6 +36,8 @@
 
 <script lang="ts">
 import Vue from 'vue'
+// @ts-ignore
+import config from '@/nuxt.config.js.txt'
 export default Vue.extend({
   async fetch (): Promise<void> {
     this.random = (await fetch('https://random-data-api.com/api/stripe/random_stripe?size=10')
@@ -44,13 +46,12 @@ export default Vue.extend({
   },
   data () {
     const random:any = []
-    const config:Object = {}
     const version:string = ''
     const env:string = ''
     return {
       version,
       config,
-      random
+      random,
     }
   },
   computed: {
