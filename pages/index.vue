@@ -20,7 +20,7 @@
         </div>
         <div class="flex items-center space-x-2 px-3 py-2">
           <icon-aws class="w-6 h-6" />
-          <span>Docker test build number <span class="font-semibold">35</span></span>
+          <span>Docker test build number <span class="font-semibold">36</span></span>
         </div>
         <div class="px-3 py-2">
           <div class="flex space-x-2 items-center mb-2">
