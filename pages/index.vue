@@ -7,7 +7,7 @@
           <icon-spinner v-if="!ssr" class="w-6 h-6" />
           <icon-check
             v-else
-            class="w-6 h-6"
+            class="w-4 h-4"
             primary="text-green-300"
             secondary="text-green-500"
           />
@@ -20,7 +20,7 @@
         </div>
         <div class="flex items-center space-x-2 px-3 py-2">
           <icon-aws class="w-6 h-6" />
-          <span>Docker test build number <span class="font-semibold">27</span></span>
+          <span>Docker test build number <span class="font-semibold">28</span></span>
         </div>
         <div class="flex items-center space-x-2 px-3 py-2">
           <icon-cog class="w-4 h-4" />
@@ -52,6 +52,7 @@ export default Vue.extend({
   },
   mounted() {
     console.log(this.$config)
+    console.log(process.env)
     this.$nextTick(() => {
       this.$nuxt.$loading.start()
       setTimeout(() => this.$nuxt.$loading.finish(), 500)

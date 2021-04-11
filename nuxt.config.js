@@ -4,7 +4,7 @@ export default {
   debug: true,
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'fume-example',
+    title: 'fume example title',
     htmlAttrs: {
       lang: 'en'
     },
