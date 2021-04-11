@@ -51,6 +51,7 @@ export default Vue.extend({
     }
   },
   mounted() {
+    console.log(this.$config)
     this.$nextTick(() => {
       this.$nuxt.$loading.start()
       setTimeout(() => this.$nuxt.$loading.finish(), 500)
