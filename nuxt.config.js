@@ -59,7 +59,7 @@ export default {
   */
   publicRuntimeConfig: {
     testVariable: process.env.TEST_VARIABLE,
-    apiUrl: process.env.API_URL,
+    apiUrl: process.env.API_URL || 'http://localhost',
   },
 
 

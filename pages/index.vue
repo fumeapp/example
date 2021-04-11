@@ -46,6 +46,7 @@ export default Vue.extend({
     const random:any = []
     const config:Object = {}
     const version:string = ''
+    const env:string = ''
     return {
       version,
       config,
