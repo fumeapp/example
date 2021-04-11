@@ -20,11 +20,15 @@
         </div>
         <div class="flex items-center space-x-2 px-3 py-2">
           <icon-aws class="w-6 h-6" />
-          <span>Docker test build number <span class="font-semibold">41</span></span>
+          <span>Docker test build number <span class="font-semibold">42</span></span>
         </div>
         <div class="flex items-center space-x-2 px-3 py-2">
           <icon-cog class="w-4 h-4" />
-          <span>$config.apiUrl <span class="font-semibold">{{ $config.apiUrl }}</span></span>
+          <span>$config.apiUrl <span class="font-semibold">{{ apiUrl }}</span></span>
+        </div>
+        <div class="flex items-center space-x-2 px-3 py-2">
+          <icon-cog class="w-4 h-4" />
+          <span>process.env.apiUrl <span class="font-semibold">{{ envApiUrl }}</span></span>
         </div>
         <pre class="w-64 h-64 overflow-scroll">
           {{ env }}
@@ -50,6 +54,8 @@ export default Vue.extend({
       version,
       random,
       env,
+      apiUrl: this.$config.apiUrl,
+      envApiUrl: process.env.apiUrl,
     }
   },
   computed: {
