@@ -22,6 +22,10 @@
           <icon-aws class="w-6 h-6" />
           <span>Docker test build number <span class="font-semibold">26</span></span>
         </div>
+        <div class="flex items-center space-x-2 px-3 py-2">
+          <icon-cog class="w-4 h-4" />
+          <span>API_URL <span class="font-semibold">{{ $config.apiUrl }}</span></span>
+        </div>
       </div>
     </div>
   </div>
