@@ -58,8 +58,10 @@ export default {
   ** See https://nuxtjs.org/guide/runtime-config/
   */
   publicRuntimeConfig: {
+    testVariable: process.env.TEST_VARIABLE,
     apiUrl: process.env.API_URL,
   },
+
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
