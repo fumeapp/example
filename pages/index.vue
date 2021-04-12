@@ -20,7 +20,7 @@
         </div>
         <div class="flex items-center space-x-2 px-3 py-2">
           <icon-aws class="w-6 h-6" />
-          <span>Docker test build number <span class="font-semibold">45</span></span>
+          <span>Docker test build number <span class="font-semibold">46</span></span>
         </div>
         <div class="flex items-center space-x-2 px-3 py-2">
           <icon-cog class="w-4 h-4" />
@@ -61,12 +61,18 @@ export default Vue.extend({
       return this.random.length > 0
     }
   },
+  beforeCreate() {
+    console.log('fume example beforeCreate() message')
+  },
+  created () {
+    console.log('fume example created() message')
+  },
   mounted() {
     this.$nextTick(() => {
       this.$nuxt.$loading.start()
       setTimeout(() => this.$nuxt.$loading.finish(), 500)
     })
-    console.log('fume example console.log() message')
+    console.log('fume example mounted() message')
   }
 })
 </script>
