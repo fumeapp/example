@@ -20,7 +20,7 @@
         </div>
         <div class="flex items-center space-x-2 px-3 py-2">
           <icon-aws class="w-6 h-6" />
-          <span>Docker test build number <span class="font-semibold">47</span></span>
+          <span>Docker test build number <span class="font-semibold">48</span></span>
         </div>
         <div class="flex items-center space-x-2 px-3 py-2">
           <icon-cog class="w-4 h-4" />
@@ -62,11 +62,10 @@ export default Vue.extend({
       return this.random.length > 0
     }
   },
-  beforeCreate() {
-    console.log('fume example beforeCreate() message')
-  },
   created () {
-    console.log('fume example created() message')
+    console.log('fume example created() console.log')
+    console.warn('fume example created() console.warn')
+    console.error('fume example created() console.error')
   },
   mounted() {
     this.$nextTick(() => {
