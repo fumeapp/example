@@ -48,11 +48,9 @@ export default Vue.extend({
   data () {
     const random:any = []
     const version:string = ''
-    // const env:string = JSON.stringify(process.env, null, 2)
     return {
       version,
       random,
-      // env,
       apiUrl: this.$config.apiUrl,
       envApiUrl: process.env.API_URL,
     }
