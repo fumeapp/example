@@ -39,11 +39,13 @@
 <script lang="ts">
 import Vue from 'vue'
 export default Vue.extend({
-  async fetch (): Promise<void> {
+  async asyncData (): Promise<void> {
     console.log('log inside a fetch()')
-    this.random = (await fetch('https://random-data-api.com/api/stripe/random_stripe?size=10')
-      .then(res => res.json()))
-    this.version = process.version
+    // @ts-ignore
+    return {
+      random: (await fetch('https://random-data-api.com/api/stripe/random_stripe?size=10').then(res => res.json())),
+      version: process.version,
+    }
   },
   data () {
     const random:any = []
