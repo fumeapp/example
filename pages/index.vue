@@ -40,7 +40,7 @@
 import Vue from 'vue'
 export default Vue.extend({
   async fetch (): Promise<void> {
-    console.log('log inside a fetch()')
+    console.log('log inside a fetch()', process.env.API_URL)
     this.random = (await fetch('https://random-data-api.com/api/stripe/random_stripe?size=10')
       .then(res => res.json()))
     this.version = process.version
@@ -70,7 +70,7 @@ export default Vue.extend({
       this.$nuxt.$loading.start()
       setTimeout(() => this.$nuxt.$loading.finish(), 500)
     })
-    console.log('fume example mounted() message')
+    console.log('fume example mounted() message', process.env.API_URL)
   }
 })
 </script>
