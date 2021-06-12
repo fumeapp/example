@@ -45,7 +45,7 @@ export default {
   ],
 
   tailwindcss: {
-    jit: true,
+    mode: 'jit',
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules
