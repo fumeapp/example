@@ -20,11 +20,7 @@
         </div>
         <div class="flex items-center space-x-2 px-3 py-2">
           <icon-aws class="w-6 h-6" />
-          <span>Docker test build number <span class="font-semibold">60</span></span>
-        </div>
-        <div class="flex items-center space-x-2 px-3 py-2">
-          <icon-cog class="w-4 h-4" />
-          <span>$config.apiUrl <span class="font-semibold">{{ apiUrl }}</span></span>
+          <span>Docker test build number <span class="font-semibold">61</span></span>
         </div>
         <div class="flex items-center space-x-2 px-3 py-2">
           <icon-cog class="w-4 h-4" />
